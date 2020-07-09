@@ -17,6 +17,7 @@ const Lead = require('./models/lead');
 // Carrega as Rotas
 const leadRoute = require('./routes/lead-route');
 const indexRoute = require('./routes/index-route');
+const webhookRoute = require('./routes/webhook-route');
 
 // converter o body com o bodyParser
 app.use(bodyParser.json({
@@ -37,15 +38,8 @@ app.use(function(req, res, next){
     next();
 });
 
-// app.post('/lead', (req, res, next) => {
-//     console.log('body ' + req.body)
-//     // res.status(201).send(req.body);
-//     if (req.body) {
-//         req.body.save()
-//     }
-// })
-
 app.use('/', indexRoute);
+app.use('/', webhookRoute);
 app.use('/lead', leadRoute);
 
 module.exports = app;
