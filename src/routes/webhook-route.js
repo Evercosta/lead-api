@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/webhooks', (req, res, next)=>{
-    res.status(200).send(req.params)
+    res.status(200).send(req.query)
 });
 
 module.exports = router;
