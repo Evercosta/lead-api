@@ -16,6 +16,7 @@ const Lead = require('./models/lead');
 
 // Carrega as Rotas
 const leadRoute = require('./routes/lead-route');
+const indexRoute = require('./routes/index-route');
 
 // converter o body com o bodyParser
 app.use(bodyParser.json({
@@ -44,6 +45,7 @@ app.use(function(req, res, next){
 //     }
 // })
 
+app.use('/', indexRoute);
 app.use('/lead', leadRoute);
 
 module.exports = app;
