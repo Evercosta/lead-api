@@ -16,11 +16,11 @@ const schema = new Schema({
     //       "adgroup_id": "44444444444"
     //     }
     //   }
-    field: {
-        type: String
+    time: {
+        type: Number
     },
-    value: {
-        type: Object
+    changes: {
+        type: Array
     }
 });
 
