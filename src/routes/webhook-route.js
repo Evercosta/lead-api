@@ -2,6 +2,8 @@
 
 const express = require('express');
 const router = express.Router();
+const mongoose = require('mongoose');
+const Webhook = mongoose.model('Webhook');
 
 router.get('/webhooks', (req, res, next)=>{
     if (req.query["hub.verify_token"] === process.env.TOKEN) {
@@ -12,5 +14,11 @@ router.get('/webhooks', (req, res, next)=>{
         res.sendStatus(403);
     }
 });
+
+router.post('/webhooks', (req, res, next)=>{
+    const webhook = new Webhook(req.body);
+    webhook.save();
+})
+
 
 module.exports = router;
