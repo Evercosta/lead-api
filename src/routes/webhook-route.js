@@ -15,10 +15,14 @@ router.get('/webhooks', (req, res, next)=>{
     }
 });
 
-router.post('/webhooks', (req, res, next)=>{
-    const webhook = new Webhook(req.body);
-    webhook.save();
-})
+const controller = require('../controllers/webhook-controller');
+
+router.post('/webhooks', controller.post);
+
+// router.post('/webhooks', (req, res, next)=>{
+//     const webhook = new Webhook(req.body);
+//     webhook.save();
+// })
 
 
 module.exports = router;
