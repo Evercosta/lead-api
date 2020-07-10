@@ -17,7 +17,7 @@ const schema = new Schema({
     //     }
     //   }
     time: {
-        type: Number
+        type: String
     },
     changes: {
         type: Array
