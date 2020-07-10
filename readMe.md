@@ -1,8 +1,16 @@
 # API
 - receber lead do Facebook
 
-# link
+## link
 - https://lead-teste.herokuapp.com/
 
-# route
+## route
 - /lead
+
+## installs
+- body-parser
+- debug
+- express
+- mongoose
+- http
+- express-x-hub

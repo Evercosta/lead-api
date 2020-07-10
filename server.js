@@ -3,7 +3,7 @@
 
 const app = require('./src/app');
 const http = require('http');
-const debug = require('debug')('curso-api-node:server');
+const debug = require('debug')('lead-api:server');
 
 const port = normalizePort(process.env.PORT || 3000);
 app.set('port', port) // setar a porta

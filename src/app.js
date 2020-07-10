@@ -4,9 +4,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const monggose = require('mongoose');
 const config = require('./config');
+const xhub = require('express-x-hub');
 
 const app = express();
-const router = express.Router();
 
 // Conecta ao banco
 monggose.connect(config.connectionString);
@@ -18,6 +18,9 @@ const Lead = require('./models/lead');
 const leadRoute = require('./routes/lead-route');
 const indexRoute = require('./routes/index-route');
 const webhookRoute = require('./routes/webhook-route');
+
+// Validação APP_SECRET Facebook
+app.use(xhub({ algorithm: 'sha1', secret: process.env.APP_SECRET }));
 
 // converter o body com o bodyParser
 app.use(bodyParser.json({
