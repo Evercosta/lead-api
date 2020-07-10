@@ -13,6 +13,7 @@ monggose.connect(config.connectionString);
 
 // Carrega os Models
 const Lead = require('./models/lead');
+const Webhook = require('./models/webhook');
 
 // Carrega as Rotas
 const leadRoute = require('./routes/lead-route');
